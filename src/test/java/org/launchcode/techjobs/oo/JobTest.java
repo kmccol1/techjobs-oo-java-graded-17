@@ -34,4 +34,13 @@ public class JobTest
         assertTrue(fullTimeJob.getCoreCompetency() instanceof CoreCompetency);
 
     }
+
+    @Test
+    public void testJobsForEquality()
+    {
+        Job fullTimeJob = new Job();
+        Job secondJob = new Job();
+
+        assertFalse(fullTimeJob.equals(secondJob));
+    }
 }
