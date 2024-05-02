@@ -43,4 +43,13 @@ public class JobTest
 
         assertFalse(fullTimeJob.equals(secondJob));
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine()
+    {
+        Job fullTimeJob = new Job();
+
+        assertEquals(fullTimeJob.toString().charAt(0),'\n');
+        assertEquals(fullTimeJob.toString().charAt(fullTimeJob.toString().length() - 1),'\n');
+    }
 }
