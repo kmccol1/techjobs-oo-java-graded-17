@@ -17,8 +17,9 @@ public class Location {
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
     public Location(String aValue)
     {
+        this();
         this.value = aValue;
-        this.id = new Location().getId();
+        //this.id = new Location().getId();
     }
 
 
