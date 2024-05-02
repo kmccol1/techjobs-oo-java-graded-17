@@ -93,14 +93,32 @@ public class Job {
     }
 
     @Override
-    public String toString() {
-        return "\nJob{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", employer=" + employer +
-                ", location=" + location +
-                ", positionType=" + positionType +
-                ", coreCompetency=" + coreCompetency +
-                '}' + "\n";
+    public String toString()
+    {
+        String result;
+        try
+        {
+            result = "\nJob{" +
+                    "id=" + this.id +
+                    ", name='" + this.name + '\'' +
+                    ", employer=" + this.employer.toString() +
+                    ", location=" + this.location.toString() +
+                    ", positionType=" + this.positionType.toString() +
+                    ", coreCompetency=" + this.coreCompetency.toString() +
+                    '}' + '\n';
+        }
+        catch (NullPointerException anException)
+        {
+            result = "\nJob{" +
+                    "id=" + this.id +
+                    ", name='" + this.name + '\'' +
+                    ", employer=" + "Data not available" +
+                    ", location=" + "Data not available" +
+                    ", positionType=" + "Data not available" +
+                    ", coreCompetency=" + "Data not available" +
+                    '}' + '\n';
+        }
+
+        return result;
     }
 }

@@ -52,4 +52,29 @@ public class JobTest
         assertEquals(fullTimeJob.toString().charAt(0),'\n');
         assertEquals(fullTimeJob.toString().charAt(fullTimeJob.toString().length() - 1),'\n');
     }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData()
+    {
+        //fail();
+        Job fullTimeJob = new Job();
+
+        assertTrue(fullTimeJob.toString().contains("id=" + fullTimeJob.getId()));
+        assertTrue(fullTimeJob.toString().contains("name='" + fullTimeJob.getName() + "'"));
+        assertTrue(fullTimeJob.toString().contains("location=Data not available"));
+        assertTrue(fullTimeJob.toString().contains("positionType=Data not available"));
+        assertTrue(fullTimeJob.toString().contains("coreCompetency=Data not available"));
+
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField()
+    {
+        //fail();
+        Job fullTimeJob = new Job();
+
+        assertTrue(fullTimeJob.toString().contains("location=Data not available"));
+        assertTrue(fullTimeJob.toString().contains("positionType=Data not available"));
+        assertTrue(fullTimeJob.toString().contains("coreCompetency=Data not available"));
+    }
 }
