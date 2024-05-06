@@ -99,28 +99,38 @@ public class Job extends JobField {
     @Override
     public String toString()
     {
-        String result;
+        String result = "";
+        //try...how to test if job fields exist/contains a value in Java?
+        //if(!this.getEmployer().getValue().isEmpty())
         try
         {
-            result = "\nJob{" +
-                    "id=" + this.id +
-                    ", name='" + this.name + '\'' +
-                    ", employer=" + this.employer.toString() +
-                    ", location=" + this.location.toString() +
-                    ", positionType=" + this.positionType.toString() +
-                    ", coreCompetency=" + this.coreCompetency.toString() +
-                    '}' + '\n';
+            if(!this.getEmployer().getValue().isEmpty())
+            {
+                result = "\nID: " + this.id +
+                        "\nName: " + this.name +
+                        "\nEmployer: " + this.employer.toString() +
+                        "\nLocation: " + this.location.toString() +
+                        "\nPosition Type: " + this.positionType.toString() +
+                        "\nCore Competency: " + this.coreCompetency.toString() + '\n';
+            }
+            else
+            {
+                result = "\nID: " + this.id +
+                        "\nName: " + this.name +
+                        "\nEmployer: " + "Data not available" +
+                        "\nLocation: " + this.location.toString() +
+                        "\nPosition Type: " + "Data not available" +
+                        "\nCore Competency: " + this.coreCompetency.toString() + '\n';
+            }
         }
         catch (NullPointerException anException)
         {
-            result = "\nJob{" +
-                    "id=" + this.id +
-                    ", name='" + this.name + '\'' +
-                    ", employer=" + "Data not available" +
-                    ", location=" + "Data not available" +
-                    ", positionType=" + "Data not available" +
-                    ", coreCompetency=" + "Data not available" +
-                    '}' + '\n';
+            result = "\nid=" + this.id +
+                    "\nname='" + this.name + '\'' +
+                    "\nemployer=" + "Data not available" +
+                    "\nlocation=" + "Data not available" +
+                    "\npositionType=" + "Data not available" +
+                    "\ncoreCompetency=" + "Data not available" + '\n';
         }
 
         return result;
