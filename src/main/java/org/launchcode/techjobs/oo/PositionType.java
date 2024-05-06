@@ -9,4 +9,9 @@ public class PositionType extends JobField
         super(value);
     }
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        return super.equals(obj);
+    }
 }
