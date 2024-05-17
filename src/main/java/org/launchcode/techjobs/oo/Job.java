@@ -99,40 +99,132 @@ public class Job extends JobField {
     @Override
     public String toString()
     {
-        String result = "";
-        //try...how to test if job fields exist/contains a value in Java?
-        //if(!this.getEmployer().getValue().isEmpty())
+        StringBuilder result = new StringBuilder();
+        result.append("\nID: ");
+
+        if (this.id >= 0)
+        {
+            result.append(this.getId());
+        }
+
         try
         {
-            if(!this.getEmployer().getValue().isEmpty())
+            if (!this.getName().isEmpty())
             {
-                result = "\nID: " + this.id +
-                        "\nName: " + this.name +
-                        "\nEmployer: " + this.employer.toString() +
-                        "\nLocation: " + this.location.toString() +
-                        "\nPosition Type: " + this.positionType.toString() +
-                        "\nCore Competency: " + this.coreCompetency.toString() + '\n';
+                result.append("\nName: ").append(this.getName());
             }
             else
             {
-                result = "\nID: " + this.id +
-                        "\nName: " + this.name +
-                        "\nEmployer: " + "Data not available" +
-                        "\nLocation: " + this.location.toString() +
-                        "\nPosition Type: " + "Data not available" +
-                        "\nCore Competency: " + this.coreCompetency.toString() + '\n';
+                result.append("\nName: ").append("Data not available");
             }
         }
-        catch (NullPointerException anException)
+        catch(NullPointerException e)
         {
-            result = "\nid=" + this.id +
-                    "\nname='" + this.name + '\'' +
-                    "\nemployer=" + "Data not available" +
-                    "\nlocation=" + "Data not available" +
-                    "\npositionType=" + "Data not available" +
-                    "\ncoreCompetency=" + "Data not available" + '\n';
+            result.append("\nName: ").append("Data not available");
         }
 
-        return result;
+        try
+        {
+            if (!this.getEmployer().getValue().isEmpty())
+            {
+                result.append("\nEmployer: ").append(this.getEmployer());
+            }
+            else
+            {
+                result.append("\nEmployer: ").append("Data not available");
+            }
+        }
+        catch(NullPointerException e)
+        {
+            result.append("\nEmployer: ").append("Data not available");
+        }
+
+
+        try
+        {
+            if (!this.getLocation().getValue().isEmpty())
+            {
+                result.append("\nLocation: ").append(this.getLocation());
+            }
+            else
+            {
+                result.append("\nLocation: ").append("Data not available");
+            }
+        }
+        catch(NullPointerException e)
+        {
+            result.append("\nLocation: ").append("Data not available");
+        }
+
+
+        try
+        {
+            if (!this.getPositionType().getValue().isEmpty())
+            {
+                result.append("\nPosition Type: ").append(this.getPositionType());
+            }
+            else
+            {
+                result.append("\nPosition Type: ").append("Data not available");
+            }
+        }
+        catch(NullPointerException e)
+        {
+            result.append("\nPosition Type: ").append("Data not available");
+        }
+
+        try
+        {
+            if (!this.getCoreCompetency().getValue().isEmpty())
+            {
+                result.append("\nCore Competency: ").append(this.getCoreCompetency());
+            }
+            else
+            {
+                result.append("\nCore Competency: ").append("Data not available");
+            }
+        }
+        catch(NullPointerException e)
+        {
+            result.append("\nCore Competency: ").append("Data not available");
+        }
+
+
+
+        result.append("\n");
+        //try...how to test if job fields exist/contains a value in Java?
+        //if(!this.getEmployer().getValue().isEmpty())
+//        try
+//        {
+//            if(!this.getEmployer().getValue().isEmpty())
+//            {
+//                result = "\nID: " + this.id +
+//                        "\nName: " + this.name +
+//                        "\nEmployer: " + this.employer.toString() +
+//                        "\nLocation: " + this.location.toString() +
+//                        "\nPosition Type: " + this.positionType.toString() +
+//                        "\nCore Competency: " + this.coreCompetency.toString() + '\n';
+//            }
+//            else
+//            {
+//                result = "\nID: " + this.id +
+//                        "\nName: " + this.name +
+//                        "\nEmployer: " + "Data not available" +
+//                        "\nLocation: " + this.location.toString() +
+//                        "\nPosition Type: " + "Data not available" +
+//                        "\nCore Competency: " + this.coreCompetency.toString() + '\n';
+//            }
+//        }
+//        catch (NullPointerException anException)
+//        {
+//            result = "\nid=" + this.id +
+//                    "\nname='" + this.name + '\'' +
+//                    "\nemployer=" + "Data not available" +
+//                    "\nlocation=" + "Data not available" +
+//                    "\npositionType=" + "Data not available" +
+//                    "\ncoreCompetency=" + "Data not available" + '\n';
+//        }
+
+        return result.toString();
     }
 }

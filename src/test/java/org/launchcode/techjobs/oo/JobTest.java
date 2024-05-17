@@ -58,12 +58,14 @@ public class JobTest
     {
         //fail();
         Job fullTimeJob = new Job("JobName", new Employer("employer"),  new Location("location"),new PositionType("position"), new CoreCompetency("skillz"));
+        String jobStr = fullTimeJob.toString();
 
-        assertTrue(fullTimeJob.toString().contains("id=" + fullTimeJob.getId()));
-        assertTrue(fullTimeJob.toString().contains("name='" + fullTimeJob.getName() + "'"));
-        assertTrue(fullTimeJob.toString().contains("location="+ fullTimeJob.getLocation()));
-        assertTrue(fullTimeJob.toString().contains("positionType="+ fullTimeJob.getPositionType()));
-        assertTrue(fullTimeJob.toString().contains("coreCompetency="+ fullTimeJob.getCoreCompetency()));
+        assertTrue(jobStr.contains("ID: " + fullTimeJob.getId()));
+        assertTrue(jobStr.contains("Name: " + fullTimeJob.getName()));
+        assertTrue(jobStr.contains("Employer: "+ fullTimeJob.getEmployer()));
+        assertTrue(jobStr.contains("Location: "+ fullTimeJob.getLocation()));
+        assertTrue(jobStr.contains("Position Type: "+ fullTimeJob.getPositionType()));
+        assertTrue(jobStr.contains("Core Competency: "+ fullTimeJob.getCoreCompetency()));
 
     }
 
@@ -72,11 +74,13 @@ public class JobTest
     {
         //fail();
         Job fullTimeJob = new Job();
+        String jobStr = fullTimeJob.toString();
 
-        assertTrue(fullTimeJob.toString().contains("id=" + fullTimeJob.getId()));
-        assertTrue(fullTimeJob.toString().contains("name='" + fullTimeJob.getName() + "'"));
-        assertTrue(fullTimeJob.toString().contains("location=Data not available"));
-        assertTrue(fullTimeJob.toString().contains("positionType=Data not available"));
-        assertTrue(fullTimeJob.toString().contains("coreCompetency=Data not available"));
+        assertTrue(jobStr.contains("ID: " + fullTimeJob.getId()));
+        assertTrue(jobStr.contains("Name: Data not available"));
+        assertTrue(jobStr.contains("Employer: Data not available"));
+        assertTrue(jobStr.contains("Location: Data not available"));
+        assertTrue(jobStr.contains("Position Type: Data not available"));
+        assertTrue(jobStr.contains("Core Competency: Data not available"));
     }
 }
