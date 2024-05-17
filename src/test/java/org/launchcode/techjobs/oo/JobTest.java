@@ -57,13 +57,13 @@ public class JobTest
     public void testToStringContainsCorrectLabelsAndData()
     {
         //fail();
-        Job fullTimeJob = new Job();
+        Job fullTimeJob = new Job("JobName", new Employer("employer"),  new Location("location"),new PositionType("position"), new CoreCompetency("skillz"));
 
         assertTrue(fullTimeJob.toString().contains("id=" + fullTimeJob.getId()));
         assertTrue(fullTimeJob.toString().contains("name='" + fullTimeJob.getName() + "'"));
-        assertTrue(fullTimeJob.toString().contains("location=Data not available"));
-        assertTrue(fullTimeJob.toString().contains("positionType=Data not available"));
-        assertTrue(fullTimeJob.toString().contains("coreCompetency=Data not available"));
+        assertTrue(fullTimeJob.toString().contains("location="+ fullTimeJob.getLocation()));
+        assertTrue(fullTimeJob.toString().contains("positionType="+ fullTimeJob.getPositionType()));
+        assertTrue(fullTimeJob.toString().contains("coreCompetency="+ fullTimeJob.getCoreCompetency()));
 
     }
 
@@ -73,6 +73,8 @@ public class JobTest
         //fail();
         Job fullTimeJob = new Job();
 
+        assertTrue(fullTimeJob.toString().contains("id=" + fullTimeJob.getId()));
+        assertTrue(fullTimeJob.toString().contains("name='" + fullTimeJob.getName() + "'"));
         assertTrue(fullTimeJob.toString().contains("location=Data not available"));
         assertTrue(fullTimeJob.toString().contains("positionType=Data not available"));
         assertTrue(fullTimeJob.toString().contains("coreCompetency=Data not available"));
